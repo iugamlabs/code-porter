@@ -27,8 +27,8 @@ description: |
 | 版本控制 | 系统 `git` | bundle create / clone / status 等子进程调用 |
 | 包管理 / 发布 | uv + hatchling / hatch-vcs | 开发同步、版本来自 VCS、PyPI 发布 |
 | 预编译二进制 | PyInstaller（`--onefile`） | GHA 多平台构建，挂到 GitHub Release |
-| Windows 包管理 | Scoop bucket [`star-plan/scoop`](https://github.com/star-plan/scoop) | 独立仓自同步，不回写本仓 |
-| macOS/Linux 包管理 | Homebrew tap [`star-plan/homebrew-tap`](https://github.com/star-plan/homebrew-tap) | 独立仓自同步 Formula |
+| Windows 包管理 | Scoop bucket [`iugamlabs/scoop`](https://github.com/iugamlabs/scoop) | 独立仓自同步，不回写本仓 |
+| macOS/Linux 包管理 | Homebrew tap [`iugamlabs/homebrew-tap`](https://github.com/iugamlabs/homebrew-tap) | 独立仓自同步 Formula |
 | 测试 | pytest | `tests/`，`pythonpath = src` |
 
 **刻意不做的选择：**
@@ -261,8 +261,8 @@ exports/windows-backup/
 |------|------|------|
 | 开发者 | PyPI / `uvx code-porter` | 现有主路径 |
 | 要免 Python 环境 | GitHub Release 预编译 | PyInstaller one-file；附 `SHA256SUMS` |
-| Windows 包管理 | Scoop [`star-plan/scoop`](https://github.com/star-plan/scoop) | 独立 bucket，不回写本仓 |
-| macOS / Linux 包管理 | Homebrew [`star-plan/tap`](https://github.com/star-plan/homebrew-tap) | Linux 亦可 brew，与 mac 共用 Formula |
+| Windows 包管理 | Scoop [`iugamlabs/scoop`](https://github.com/iugamlabs/scoop) | 独立 bucket，不回写本仓 |
+| macOS / Linux 包管理 | Homebrew [`iugamlabs/tap`](https://github.com/iugamlabs/homebrew-tap) | Linux 亦可 brew，与 mac 共用 Formula |
 | 前置条件 | 系统 `git` 在 `PATH` | 导出/导入 bundle 调用本机 Git |
 
 ### 9.2 发布流水线（摘要）
@@ -271,7 +271,7 @@ exports/windows-backup/
 tag v*.*.*
   → 测试 + PyPI
   → matrix 构建 Win/Linux/macOS 二进制 → GitHub Release
-  →（可选 PACKAGING_TOKEN）notify star-plan/scoop & homebrew-tap
+  →（可选 PACKAGING_TOKEN）notify iugamlabs/scoop & homebrew-tap
   → packaging 仓 cron/dispatch 从 Release 同步 manifest / Formula
 ```
 

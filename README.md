@@ -2,8 +2,8 @@
 
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/code-porter)](https://pypi.org/project/code-porter/)
 [![PyPI Version](https://img.shields.io/pypi/v/code-porter)](https://pypi.org/project/code-porter/)
-[![CI](https://github.com/star-plan/code-porter/actions/workflows/ci.yml/badge.svg)](https://github.com/star-plan/code-porter/actions/workflows/ci.yml)
-[![License](https://img.shields.io/github/license/star-plan/code-porter)](https://github.com/star-plan/code-porter/blob/main/LICENSE)
+[![CI](https://github.com/iugamlabs/code-porter/actions/workflows/ci.yml/badge.svg)](https://github.com/iugamlabs/code-porter/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/iugamlabs/code-porter)](https://github.com/iugamlabs/code-porter/blob/main/LICENSE)
 
 一个纯本地运行的代码库导入导出工具。它会在当前机器上扫描项目，优先将 Git 仓库导出为 git bundle，将非 Git 项目导出为 zip；导出完成后，可在另一台机器上基于 manifest 批量导入。
 
@@ -18,7 +18,7 @@
 #### Scoop（Windows）
 
 ```powershell
-scoop bucket add star-plan https://github.com/star-plan/scoop
+scoop bucket add iugam https://github.com/iugamlabs/scoop
 scoop install code-porter
 code-porter --help
 ```
@@ -26,14 +26,14 @@ code-porter --help
 #### Homebrew（macOS / Linux）
 
 ```bash
-brew tap star-plan/tap
+brew tap iugamlabs/tap
 brew install code-porter
 code-porter --help
 ```
 
 ### 普通用户：下载预编译二进制
 
-不需要安装 Python 或 uv。打开 [GitHub Releases](https://github.com/star-plan/code-porter/releases)，按系统下载对应文件：
+不需要安装 Python 或 uv。打开 [GitHub Releases](https://github.com/iugamlabs/code-porter/releases)，按系统下载对应文件：
 
 | 平台 | 文件 |
 |------|------|
@@ -196,7 +196,7 @@ uv publish
 1. 运行测试并发布 wheel/sdist 到 PyPI  
 2. 在 Windows / Linux / macOS 上用 PyInstaller 构建 standalone 二进制  
 3. 创建 GitHub Release，附带各平台二进制与 `SHA256SUMS`  
-4. （可选）若配置了 `PACKAGING_TOKEN`，通知 [star-plan/scoop](https://github.com/star-plan/scoop) 与 [star-plan/homebrew-tap](https://github.com/star-plan/homebrew-tap) 立即同步；否则对方按 cron 自动拉取 Release
+4. （可选）若配置了 `PACKAGING_TOKEN`，通知 [iugamlabs/scoop](https://github.com/iugamlabs/scoop) 与 [iugamlabs/homebrew-tap](https://github.com/iugamlabs/homebrew-tap) 立即同步；否则对方按 cron 自动拉取 Release
 本地预览二进制（需 dev 依赖）：
 
 ```bash

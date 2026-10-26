@@ -199,13 +199,13 @@ jobs:
 
             ```powershell
             # Scoop (Windows)
-            scoop bucket add star-plan https://github.com/star-plan/scoop
+            scoop bucket add iugam https://github.com/iugamlabs/scoop
             scoop install code-porter
             ```
 
             ```bash
             # Homebrew (macOS / Linux)
-            brew tap star-plan/tap
+            brew tap iugamlabs/tap
             brew install code-porter
             ```
 
@@ -245,7 +245,7 @@ jobs:
             exit 0
           fi
           payload='{"event_type":"app-release","client_payload":{"app":"code-porter","tag":"'"${GITHUB_REF_NAME}"'"}}'
-          echo "Dispatching app-release to star-plan/scoop"
-          gh api repos/star-plan/scoop/dispatches --input - <<<"$payload"
-          echo "Dispatching app-release to star-plan/homebrew-tap"
-          gh api repos/star-plan/homebrew-tap/dispatches --input - <<<"$payload"
+          echo "Dispatching app-release to iugamlabs/scoop"
+          gh api repos/iugamlabs/scoop/dispatches --input - <<<"$payload"
+          echo "Dispatching app-release to iugamlabs/homebrew-tap"
+          gh api repos/iugamlabs/homebrew-tap/dispatches --input - <<<"$payload"

@@ -15,8 +15,8 @@ description: |
 已落地（见 [跨平台分发与包管理](../../research/distribution-packaging.md)）：
 
 - PyInstaller 多平台二进制 + GitHub Release + `SHA256SUMS`
-- Scoop：`star-plan/scoop` 独立仓自同步
-- Homebrew：`star-plan/homebrew-tap`（含 Linux）
+- Scoop：`iugamlabs/scoop` 独立仓自同步
+- Homebrew：`iugamlabs/homebrew-tap`（含 Linux）
 
 本 plan 跟踪**尚未完成**的增强项，避免调研结论只留在 research 里无落地。
 
@@ -26,9 +26,9 @@ description: |
 
 ### P0 — 文档与首个可用包版本
 
-- [ ] 确认 `star-plan/scoop` / `star-plan/homebrew-tap` 已公开且 sync workflow 可用
+- [ ] 确认 `iugamlabs/scoop` / `iugamlabs/homebrew-tap` 已公开且 sync workflow 可用
 - [ ] 打出带完整四平台二进制的 tag Release，触发 packaging 仓同步
-- [ ] README / Release notes 写明：Linux 可用 `brew tap star-plan/tap`
+- [ ] README / Release notes 写明：Linux 可用 `brew tap iugamlabs/tap`
 
 ### P1 — Linux deb / rpm
 
@@ -59,5 +59,5 @@ description: |
 - `docs/research/distribution-packaging.md`
 - `packaging/code-porter.spec`
 - `.github/workflows/publish.yml`
-- https://github.com/star-plan/scoop
-- https://github.com/star-plan/homebrew-tap
+- https://github.com/iugamlabs/scoop
+- https://github.com/iugamlabs/homebrew-tap
