@@ -116,9 +116,9 @@ description: |
 
 | 项 | 选择 |
 |----|------|
-| 仓库 | [`star-plan/scoop`](https://github.com/star-plan/scoop) |
+| 仓库 | [`iugamlabs/scoop`](https://github.com/iugamlabs/scoop) |
 | 清单位置 | `bucket/ship.json`、`bucket/code-porter.json` 等 |
-| 用户命令 | `scoop bucket add star-plan https://github.com/star-plan/scoop` → `scoop install code-porter` |
+| 用户命令 | `scoop bucket add iugam https://github.com/iugamlabs/scoop` → `scoop install code-porter` |
 | 版本更新 | **packaging 仓自同步**（schedule + workflow_dispatch + 可选 `repository_dispatch`），读各应用最新 GitHub Release + checksum |
 | 应用仓 | **不**再 commit Scoop manifest；可选 `PACKAGING_TOKEN` 发版后 dispatch 立即同步 |
 
@@ -147,9 +147,9 @@ Scoop 安装读的是 bucket 里**当前** JSON 的 `version` + `hash`。
 
 | 项 | 选择 |
 |----|------|
-| 仓库 | [`star-plan/homebrew-tap`](https://github.com/star-plan/homebrew-tap) |
-| Tap 名 | `star-plan/tap`（GitHub 仓库名 `homebrew-tap` 的映射） |
-| 用户命令 | `brew tap star-plan/tap` → `brew install code-porter` |
+| 仓库 | [`iugamlabs/homebrew-tap`](https://github.com/iugamlabs/homebrew-tap) |
+| Tap 名 | `iugamlabs/tap`（GitHub 仓库名 `homebrew-tap` 的映射） |
+| 用户命令 | `brew tap iugamlabs/tap` → `brew install code-porter` |
 | 同步方式 | 与 Scoop 类似：tap 内 workflow 从最新 Release + `SHA256SUMS` 重写 Formula |
 
 ### 4.2 Linux 上的 Homebrew
@@ -161,7 +161,7 @@ Formula 中写了 `on_linux` 后，与 macOS **共用同一 tap**，无需为 Li
 
 ```bash
 # macOS / Linux（Homebrew）
-brew tap star-plan/tap
+brew tap iugamlabs/tap
 brew install code-porter
 ```
 
@@ -245,7 +245,7 @@ sudo dnf install ./code-porter-*.rpm
                          │
               ┌──────────┴──────────┐
               ▼                     ▼
-     star-plan/scoop        star-plan/homebrew-tap
+     iugamlabs/scoop        iugamlabs/homebrew-tap
      (Windows Scoop)        (macOS + Linux brew)
               │                     │
               └──────────┬──────────┘
@@ -256,10 +256,10 @@ sudo dnf install ./code-porter-*.rpm
 
 | 仓库 | 职责 |
 |------|------|
-| `star-plan/code-porter` | 源码、测试、PyPI、构建二进制、创建 Release |
-| `star-plan/scoop` | Scoop manifests + sync workflow |
-| `star-plan/homebrew-tap` | Homebrew formulas + sync workflow |
-| `heyoungai/ship` 等 | 同样只发 Release；清单不进应用仓 |
+| `iugamlabs/code-porter` | 源码、测试、PyPI、构建二进制、创建 Release |
+| `iugamlabs/scoop` | Scoop manifests + sync workflow |
+| `iugamlabs/homebrew-tap` | Homebrew formulas + sync workflow |
+| `iugamlabs/ship` 等 | 同样只发 Release；清单不进应用仓 |
 
 ### 6.1 `PACKAGING_TOKEN`（可选）
 
@@ -275,8 +275,8 @@ sudo dnf install ./code-porter-*.rpm
 
 1. **开发者**：PyPI + `uvx code-porter`
 2. **预编译**：PyInstaller one-file，GHA 多平台，Release + `SHA256SUMS`
-3. **Windows 包管理**：Scoop → `star-plan/scoop`（独立仓）
-4. **macOS / Linux 包管理（默认）**：Homebrew → `star-plan/tap`
+3. **Windows 包管理**：Scoop → `iugamlabs/scoop`（独立仓）
+4. **macOS / Linux 包管理（默认）**：Homebrew → `iugamlabs/tap`
 5. **Linux 增强（未完成）**：Release 增加 deb/rpm；视需求再考虑 Aqua / AUR
 6. **应用仓不提交** Scoop/Homebrew 版本回写，避免污染 git 历史
 
@@ -306,8 +306,8 @@ sudo dnf install ./code-porter-*.rpm
 | `packaging/code-porter.spec` | PyInstaller 规格 |
 | `.github/workflows/publish.yml` | 测试、二进制、PyPI、Release、可选 notify |
 | `.github/workflows/build-binaries.yml` | PR/手动二进制冒烟 |
-| [star-plan/scoop](https://github.com/star-plan/scoop) | Scoop bucket |
-| [star-plan/homebrew-tap](https://github.com/star-plan/homebrew-tap) | Homebrew formulas |
+| [iugamlabs/scoop](https://github.com/iugamlabs/scoop) | Scoop bucket |
+| [iugamlabs/homebrew-tap](https://github.com/iugamlabs/homebrew-tap) | Homebrew formulas |
 | 本文件 | 分发调研结论与备选方案 |
 
 ---
